@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="loginecadastro.css">
+</head>
+<body>
+    <header>
+        <h1>Cadastro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <form id="cadastroForm" onsubmit="return fazerCadastro()">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+            <label for="celular">Celular:</label>
+            <input type="tel" id="celular" name="celular" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="opcaoContato">Preferência de Contato:</label>
+            <select id="opcaoContato" name="opcaoContato" required>
+                <option value="email">E-mail</option>
+                <option value="whatsapp">WhatsApp</option>
+            </select>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <label for="confirmarSenha">Confirmar Senha:</label>
+            <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Plataforma de Consulta Médica Online. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function fazerCadastro() {
+            var nome = document.getElementById("nome").value;
+            var cpf = document.getElementById("cpf").value;
+            var dataNascimento = document.getElementById("dataNascimento").value;
+            var celular = document.getElementById("celular").value;
+            var email = document.getElementById("email").value;
+            var opcaoContato = document.getElementById("opcaoContato").value;
+            var senha = document.getElementById("senha").value;
+            var confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            // Simulação de validação de senhas
+            if (senha !== confirmarSenha) {
+                alert("As senhas não coincidem. Tente novamente.");
+                return false; // Evitar o envio do formulário
+            }
+
+            // Simulação de cadastro
+            var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarios.push({
+                nome: nome,
+                cpf: cpf,
+                dataNascimento: dataNascimento,
+                celular: celular,
+                email: email,
+                opcaoContato: opcaoContato,
+                senha: senha
+            });
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            alert("Cadastro realizado com sucesso!");
+
+            // Redirecionar para a página de login após o cadastro
+            window.location.href = "login.html";
+            return false; // Evitar o envio do formulário
+        }
+    </script>
+</body>
+</html>
