@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="loginecadastro.css">
+</head>
+<body>
+    <header>
+        <h1>Login</h1>
+    </header>
+
+    <section>
+        <form id="loginForm" onsubmit="return fazerLogin()">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Entrar</button>
+            <p><a href="#" class="esqueceu-senha" onclick="esqueceuSenha()">Esqueceu a senha?</a></p>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Plataforma de Consulta Médica Online. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function fazerLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Simulação de verificação de credenciais
+            var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            var usuarioEncontrado = usuarios.find(function(user) {
+                return user.username === username && user.password === password;
+            });
+
+            if (usuarioEncontrado) {
+                alert("Login bem-sucedido!");
+                // Redirecionar para a página de perfil após o login
+                window.location.href = "perfil.html";
+                return false; // Evitar o envio do formulário
+            } else {
+                alert("Credenciais inválidas. Tente novamente.");
+                return false; // Evitar o envio do formulário
+            }
+        }
+
+        function esqueceuSenha() {
+            var email = prompt("Digite seu e-mail para recuperar a senha:");
+            if (email) {
+                alert("Um e-mail de recuperação foi enviado para " + email);
+            }
+        }
+    </script>
+</body>
+</html>

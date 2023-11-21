@@ -1,0 +1,130 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Adicionado para que o ::before seja posicionado em relação ao corpo */
+    background-image: url('images/NotreDame-anuncia-nova-aquisição-por-R-105-milhões.jpg'); /* Adicione o caminho para a imagem de fundo desejada */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff; /* Cor do texto para a página inicial */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Adicione um overlay escuro com opacidade (0.5 neste caso) */
+    z-index: -1; /* Coloca o overlay atrás do conteúdo do corpo */
+}
+
+.container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto; /* Adicionado para centralizar verticalmente */
+    flex: 1; /* Adicionado para expandir e ocupar todo o espaço disponível na coluna */
+}
+
+h1 {
+    text-align: center;
+    color: #3498db;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*input dos dados(box de inserção de dados)*/
+input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: transparent; /* deixaa o fundo do input transparente */
+    color: #fff; /* cor do  texto dentro do input */
+    text-align: center;
+}
+/* botao cadastrar*/
+button {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    background-color: #3498db87;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.link {
+    color: #3498db;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+/* estilos responsivos  para telas menores */
+@media (max-width: 768px) {
+    .container {
+        max-width: 80%;
+    }
+}
+/* login-cadastro.css */
+/* ... (seus estilos existentes) */
+
+.icon {
+    display: inline-block;
+    width: 40px; /* Ajuste conforme necessário */
+    height: 40px; /* Ajuste conforme necessário */
+    background-size: cover;
+    background-position: center;
+}
+
+.whatsapp {
+    background-image: url('3670051.png'); /* Adicione o caminho para o ícone do WhatsApp */
+}
+
+.email {
+    background-image: url('2504727.png'); /* Adicione o caminho para o ícone de E-mail */
+}
+
+/* Adicione estas regras no seu arquivo CSS para estilizar o link "Esqueceu a senha?" */
+.esqueceu-senha {
+    color: #47afffbe; /* Cor de destaque para o link (substitua pela cor desejada) */
+    text-decoration: none;
+}
+
+.esqueceu-senha:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse sobre o link */
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+}
