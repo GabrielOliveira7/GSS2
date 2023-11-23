@@ -1,0 +1,59 @@
+/* perfil.css */
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
+    display: flex; /* Adicionado para alinhar as caixas lado a lado */
+    justify-content: space-around; /* Adicionado para espaço entre as caixas */
+    align-items: flex-start; /* Adicionado para alinhar as caixas no topo */
+    flex-wrap: wrap; /* Adicionado para lidar com a quebra de linha */
+}
+
+.info-box {
+    width: 400px;
+    padding: 20px;
+    margin: 20px 0; /* Ajustado para espaço entre as caixas */
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    color: #fff;
+}
+
+.info-box h2 {
+    text-align: center;
+}
+
+.info-box p {
+    margin: 10px 0;
+}
+
+.info-box button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 20px;
+    letter-spacing: 4px;
+}
+
+.info-box button:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+}
+
+.info-box button span {
+    position: absolute;
+    display: block;
+}

@@ -1,0 +1,149 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Adicionado para que o ::before seja posicionado em relação ao corpo */
+    background-image: url('images/NotreDame-anuncia-nova-aquisição-por-R-105-milhões.jpg'); /* Adicione o caminho para a imagem de fundo desejada */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff; /* Cor do texto para a página inicial */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Adicione um overlay escuro com opacidade (0.5 neste caso) */
+    z-index: -1; /* Coloca o overlay atrás do conteúdo do corpo */
+}
+
+
+header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    
+}
+
+nav ul li {
+    margin-right: 20px;
+    
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+section.servico-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilo para o formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    
+    
+}
+
+/* Estilo para o perfil do usuário */
+nav ul.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-link {
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos Responsivos */
+@media only screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    section.servico-container {
+        padding: 10px;
+    }
+}

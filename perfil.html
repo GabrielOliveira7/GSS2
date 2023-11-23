@@ -3,48 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Css\perfil.css">
+    <title>Perfil do Usuário</title>
+
+    
+    
 </head>
 <body>
+
+    <!-- Header com menu estilo hamburguer -->
     <header>
-        <h1>Meu Perfil</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-            </ul>
-        </nav>
+        <div class="menu-icon">&#9776;</div>
+        <!-- Adicione seu menu aqui -->
     </header>
 
-    <section>
-        <div id="profileContent">
-            <!-- As informações do perfil serão exibidas aqui -->
-        </div>
+     <!-- Caixa de dados pessoais -->
+     <div class="info-box" id="dados-pessoais-box">
+        <h2>Dados Pessoais</h2>
+        <p>Nome: <span id="nome">Nome do Usuário</span></p>
+        <p>Sexo: <span id="sexo">Masculino</span></p>
+        <p>Data de Nascimento: <span id="data-nascimento">01/01/1990</span></p>
+        <p>Estado Civil: <span id="estado-civil">Solteiro</span></p>
+        <button onclick="editInfo('dados-pessoais-box')">Editar</button>
+        <button style="display:none" onclick="saveInfo('dados-pessoais-box')">Salvar</button>
+        <button style="display:none" onclick="cancelEdit('dados-pessoais-box')">Cancelar</button>
+    </div>
 
-        <script>
-            // Verificar se o usuário está logado (simulação)
-            var usuarioLogado = true;
+    <!-- Caixa de endereço -->
+    <div class="info-box" id="endereco-box">
+        <h2>Endereço</h2>
+        <p>Endereço: <span id="endereco">Rua XYZ, 123</span></p>
+        <p>CEP: <span id="cep">12345-678</span></p>
+        <p>Estado: <span id="estado">SP</span></p>
+        <p>Bairro: <span id="bairro">Centro</span></p>
+        <button onclick="editInfo('endereco-box')">Editar</button>
+        <button style="display:none" onclick="saveInfo('endereco-box')">Salvar</button>
+        <button style="display:none" onclick="cancelEdit('endereco-box')">Cancelar</button>
+    </div>
+    
+    <!-- Caixa de dados de contato -->
+    <div class="info-box" id="contato-box">
+        <h2>Dados de Contato</h2>
+        <p>Email: <span id="email">usuario@email.com</span></p>
+        <p>Celular: <span id="celular">(11) 9 8765-4321</span></p>
+        <p>Preferência de Comunicação: <span id="preferencia-comunicacao">Email</span></p>
+        <button onclick="editInfo('contato-box')">Editar</button>
+        <button style="display:none" onclick="saveInfo('contato-box')">Salvar</button>
+        <button style="display:none" onclick="cancelEdit('contato-box')">Cancelar</button>
+    </div>
 
-            // Função para exibir as informações do perfil ou mensagem de login
-            function exibirPerfil() {
-                var profileContent = document.getElementById("profileContent");
+    <!-- Caixa de documentos -->
+    <div class="info-box">
+        <h2>Documentos</h2>
+        <p>CPF: <span id="cpf">123.456.789-00</span></p>
+        <p>RG: <span id="rg">12345678</span></p>
+        <p class="note">Para alterar documentos, ligue para a central ou solicite na recepção do Centro Médico.</p>
+    </div>
 
-                if (usuarioLogado) {
-                    // Se estiver logado, exibir informações do perfil
-                    profileContent.innerHTML = "<h2>Informações do Perfil</h2><p>Nome: John Doe</p><p>Email: john.doe@example.com</p>";
-                } else {
-                    // Se não estiver logado, exibir mensagem de login
-                    profileContent.innerHTML = "<p>Por favor, faça login para acessar o perfil.</p><p><a href=\"login.html\">Login</a></p>";
-                }
-            }
+    
+</div>
 
-            // Chamar a função ao carregar a página
-            window.onload = exibirPerfil;
-        </script>
-    </section>
+<script>
+    function editInfo(boxId) {
+        let box = document.getElementById(boxId);
+        let inputs = box.getElementsByTagName('input');
+        
+        // Desativa todos os inputs existentes
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = false;
+        }
 
-    <footer>
-        <p>&copy; 2023 Plataforma de Consulta Médica Online. Todos os direitos reservados.</p>
-    </footer>
+        // Mostra os botões de salvar e cancelar
+        let buttons = box.getElementsByTagName('button');
+        buttons[1].style.display = 'inline';
+        buttons[2].style.display = 'inline';
+
+        // Oculta o botão de editar
+        buttons[0].style.display = 'none';
+    }
+
+    function saveInfo(boxId) {
+        let box = document.getElementById(boxId);
+        let inputs = box.getElementsByTagName('input');
+        
+        // Atualiza os valores do span
+        for (let i = 0; i < inputs.length; i++) {
+            let spanId = inputs[i].id.replace('input', 'span');
+            document.getElementById(spanId).textContent = inputs[i].value;
+        }
+
+        // Desativa todos os inputs
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = true;
+        }
+
+        // Oculta os botões de salvar e cancelar
+        let buttons = box.getElementsByTagName('button');
+        buttons[1].style.display = 'none';
+        buttons[2].style.display = 'none';
+
+        // Mostra o botão de editar
+        buttons[0].style.display = 'inline';
+    }
+
+    function cancelEdit(boxId) {
+        let box = document.getElementById(boxId);
+        let inputs = box.getElementsByTagName('input');
+        
+        // Atualiza os valores dos inputs com os valores dos spans
+        for (let i = 0; i < inputs.length; i++) {
+            let spanId = inputs[i].id.replace('input', 'span');
+            inputs[i].value = document.getElementById(spanId).textContent;
+        }
+
+        // Desativa todos os inputs
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = true;
+        }
+
+        // Oculta os botões de salvar e cancelar
+        let buttons = box.getElementsByTagName('button');
+        buttons[1].style.display = 'none';
+        buttons[2].style.display = 'none';
+
+        // Mostra o botão de editar
+        buttons[0].style.display = 'inline';
+    }
+</script>
+
 </body>
 </html>
+
+
+
+
