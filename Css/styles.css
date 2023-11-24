@@ -1,113 +1,88 @@
+/* styles_page.css */
+
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
+    color: #ccc;
     padding: 0;
-    background-image: url('images/NotreDame-anuncia-nova-aquisição-por-R-105-milhões.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Adicione um overlay escuro com opacidade (0.5 neste caso) */
-    z-index: -1; /* Coloca o overlay atrás do conteúdo do corpo */
-}
-
-
-header {
-    background-color: #3498db;
-    color: white;
-    padding: 20px;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
     text-align: center;
 }
 
-
-/* Restante do seu CSS... */
-
-header {
-    background-color: #090c54;
-    color: white;
-    padding: 20px;
+.header {
     text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
+.pergunta {
+    text-align: center;
+    margin: 20px 0;
 }
 
 .atendimento-boxes {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap; /* Impede que as caixas quebrem para a próxima linha */
-    margin: 20px;
-    overflow-x: auto; /* Adiciona barra de rolagem horizontal em telas menores */
+    flex-direction: column; /* Updated to display boxes in a column */
+    align-items: center; /* Center the boxes horizontally */
 }
 
 .atendimento-box {
-    width: 30%;
-    background-color: #b0b3ff;
-    padding: 15px;
+    width: 300px; /* Adjust the width as needed */
     margin: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.atendimento-box a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.atendimento-box h2 {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin: 0;
     text-align: center;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho da caixa */
 }
 
-.atendimento-box:hover {
-    background-color: rgb(8, 45, 87);
-}
-
-footer {
-    background-color: #090c54;
-    color: white;
+.footer {
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    background-color: #333;
+    color: #fff;
 }
 
-/* Adicione estilos para links */
-a {
-    color: #54646e;
-    text-decoration: none;
-}
+/* Add media queries if needed for responsiveness */
+/* Adicione essas regras ao seu arquivo styles.css */
 
-
-/* Letras dos boxes */
-.atendimento-box h2 {
-    margin-bottom: 10px;
-    color: rgb(61, 107, 234);
-}
-
-.atendimento-box p {
-    color: #777;
-}
-
-/* Estilos adicionais para tornar as caixas responsivas e ajustar o tamanho */
-@media (max-width: 768px) {
-    .atendimento-box {
-        width: 45%;
-    }
-}
-/* Adicione essas regras para centralizar a pergunta */
-.pergunta {
-    color: rgb(123, 130, 209);
+.atendimento-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
     text-align: center;
-    margin: 20px 0; /* Ajuste a margem conforme necessário */
 }
+
+.atendimento-box a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.info {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info h2 {
+    margin-bottom: 10px;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+
+
+
 

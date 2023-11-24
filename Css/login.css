@@ -4,6 +4,8 @@ html {
     
     body {
     margin:0;
+    color: #fff;
+    text-align: center;
     padding:0;
     font-family: sans-serif;
     background: linear-gradient(#141e30, #243b55);
@@ -32,7 +34,9 @@ html {
     .login-box .user-box {
     position: relative;
     }
-    .login-box .user-box input {
+    
+   
+ .login-box .user-box input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -138,10 +142,9 @@ html {
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
     }
+    
     @keyframes btn-anim3 {
-    
     0% {
-    
     right: -100%;
     }
     50%,100% {
